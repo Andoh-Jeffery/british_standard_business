@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "britishstandardbusiness",
+  "private_key_id": "2f90e1bf5d831a24f36ef9e4f4e6ce5d0142f2de",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDUkiSchW15qJtD\no/uuTFR2ydCZnu2glaYE50YT63AKefEXkb1+Yy4E2q+UOq9fSUkj/hrmPSQVDh0X\nIVafvWS+Km16KxrgDw8tX5sdrNbv++Kzl55aTpNd7gE6YKsDE3nKDDPn31bF1mUJ\ne+WYzJTNIomlKSkLIXNVleVez2fdjJ4aGpWDnnU35UhluiBIOdzuKRG9OvzUt4uC\nsi+IlJfQEmfkRw2Mf2wnAiQ89NM4WoWWrmsgZKgMAmTYPOfM57KCFTuBFdrfjv8i\nn+2CNlV9BS27Ez4IdcCTZvqjMfgWAz8EJooareCXX8/RBteC8ci+5J+z7SqVR8ey\npJABHNIHAgMBAAECggEAFWNG78C1DSKbzKh5MEZZ0UHpDSvieN/VvnSOpn5v3X37\ndgWh7U+JV8+xDtcAwjObelWc20GXmc67upIOJzBlLIUUUtB3ecfKHSSbdNbpIWhU\nnQFKW4fAaBkEYp1LV5nkDSJBLrlX/7vcmqGurjsXVbR96PJFQOtysU/NrkZsCuxm\nInZ6OguLClW2Kox0reyHNd94TG4EDwxQ31lYiZOrmIddSwKc1vFxuFmFFmmXODMe\nUoN1K4Qs5Ff7I/tHYWpJBDcOj256+w3MDpmA1xiJFm+8UvVfXhB0MhKzVf/Yl5Ml\nY591wboW27EUw1VC2fZ4bUYugLZDN/vjGs97VUin0QKBgQDqLvJvQqYQV9/mjF3m\n1ipaohgWncv27zaI9zy3BvAG/+h1rGZ+rH4t18hQoZwBQ2LuADGpwYT1cwImwp0i\n6ZrH6Pwy9IwrQEKhbcFNRw5N59B+bAkjV34ByMEmlLs26dJzJ6UDDLY9cV1vKq2u\nTmpgZG6SXrmxorPnJgOydj2mxQKBgQDoX8IEiPUXO8USVEARmSW/2ujA5FUl2HHf\nOor7sWMkVV4hpUjXzVvUt+wzvFIAZcYwVR4d4yGGoTKTzrd52sW3pIJKr0hydHwn\nLvJerJ81qsJwAAHccNa8SVTxnNJG0xAR3lYlt7VN+pt6fW1/RHkHJmoaa5xz9/hP\nKxTw7KECWwKBgBO/59Q4Q7cHIivYVKb+Es5X8z4dCrGFlQzSBP3OiPmeJWWfJ3mx\nZGbLVupt5rE4lKRLweR2HJdynpDUQtpJ5zLK1FIby6JuJfBlSDMTNgKd9ThkNhUT\n8N2Hp7pwOqWz7HqnskPik4/0+pNAfys/E7uTXLvdXz264f8xdohbbnGdAoGAHlnj\njZQV7yLvaqV2eNX4CEcff5JTTM4okW+kF5vjxysfUGW2TfmUtQQQ5fEDBOpGKKn1\ndRHlnyAO6x9k95WLnaDvI7IhVFHCpZuMLLF/WhMjsl1N4O0cHxu07Jn/HSEUSEEy\nH1sPY1AIXsdjNexLopNx6GGF3d/VnwGRiqZdoWECgYEAg57IKx+PPLS95cWA2Rnf\n3oMb/Zm1wlhcT+v4oKLfkUGWcGlRhi56/an+6JroYIzWLFgj0nxubbSkt9W/DBo/\nKsEnAL2o2LVRhT4tJduLbO04JKcx3qOQM+TQHpyKHVVudlWxvVwr4ekYOvRfhObO\nDj69NK/AzlcBaN3dIsf10gg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-7oe80@britishstandardbusiness.iam.gserviceaccount.com",
+  "client_id": "113609409571731490697",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-7oe80%40britishstandardbusiness.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
