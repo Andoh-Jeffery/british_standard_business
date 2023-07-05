@@ -11,10 +11,15 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname,"./public")))
 // ===========================================================//
-app.use('/purchases',purchases)
+app.use('/purchase',purchases)
 
 app.get('/',(req,res)=>{
-    console.log('Hello World');
+    // console.log('Hello World');
+    res.status(200).render('dashboard')
+}
+)
+app.get('/view_purchase',(req,res)=>{
+    res.status(200).render('viewPurchase')
 })
 
 

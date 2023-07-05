@@ -11,12 +11,23 @@ router.post('/create',async(req,res)=>{
     } catch (error) {
         console.log(error);
     }
+    // res.status(201).send(data);
 })
 
-// READ PURHCASE
+// READ ALL PURHCASE
 router.get('/',async(req,res)=>{
     try {
         await db.collection('purchase').doc().get()
+    } catch (error) {
+        console.log(error);
+    }
+})
+// READ SINGLE PURCHASE
+router.get('/:id',async(req,res)=>{
+    const id=req.params.id 
+    try {
+        const RData=await db.collection('purchase').doc(id).get()
+        res.status(200).send(RData)
     } catch (error) {
         console.log(error);
     }
@@ -26,7 +37,7 @@ router.put('/:id',async(req,res)=>{
     const data=req.body 
     const id=req.params.id
     try {
-        await db.collection('purchase').doc(id).set(data)
+        await db.collection('purchase').doc(id).update(data)
         res.status(201).send('data updated')
     } catch (error) {
         console.log(error);
