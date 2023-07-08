@@ -3,6 +3,7 @@ require('dotenv').config()
 const db=require('./config/db')
 const path=require('path')
 const purchases=require('./routes/purchases')
+const expenses=require('./routes/expenses')
 const port=process.env.PORT ||7000
 const app =express()
 // ========================================================== //
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname,"./public")))
 // ===========================================================//
 app.use('/purchase',purchases)
+app.use('/expense',expenses)
 
 app.get('/',(req,res)=>{
     // console.log('Hello World');
@@ -20,6 +22,16 @@ app.get('/',(req,res)=>{
 )
 app.get('/view_purchase',(req,res)=>{
     res.status(200).render('viewPurchase')
+})
+app.get('/make_purchase',(req,res)=>{
+    res.status(200).render('makePurchase')
+})
+
+app.get('/view_expense',(req,res)=>{
+    res.status(200).render('viewExpense')
+})
+app.get('/add_expense',(req,res)=>{
+    res.status(200).render('addExpense')
 })
 
 
