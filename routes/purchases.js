@@ -3,10 +3,10 @@ const db=require('../config/db')
 const router=express.Router()
 
 // CREATE PURCHASE
-router.post('/create',async(req,res)=>{
-    const data=req.body 
+router.post('/add',async(req,res)=>{
+    const {name,quantity,size,price}=req.body 
     try {
-        await db.collection('purhase').doc().set(data)
+        await db.collection('purhase').doc().set(req.body)
         res.status(201).send('data added')
     } catch (error) {
         console.log(error);
