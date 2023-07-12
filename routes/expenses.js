@@ -18,7 +18,16 @@ router.post('/add',async(req,res)=>{
 // READ ALL PURCHASE
 router.get('/',async(req,res)=>{
     try {
-        await db.collection('expense').doc().get()
+        res.status(200).render('addExpense')
+    } catch (error) {
+        console.log(error);
+    }
+})
+// READ ALL PURCHASE
+router.get('/view',async(req,res)=>{
+    try {
+        const expenceData=await db.collection('expense').get()
+        res.status(200).render('viewExpense',{Data:expenceData})
     } catch (error) {
         console.log(error);
     }

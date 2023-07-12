@@ -6,7 +6,7 @@ const router=express.Router()
 router.post('/add',async(req,res)=>{
     const {name,quantity,size,price}=req.body 
     try {
-        await db.collection('purhase').doc().set(req.body)
+        await db.collection('purchase').doc().set(req.body)
         res.status(201).send('data added')
     } catch (error) {
         console.log(error);
@@ -17,7 +17,18 @@ router.post('/add',async(req,res)=>{
 // READ ALL PURHCASE
 router.get('/',async(req,res)=>{
     try {
-        await db.collection('purchase').doc().get()
+    //    const purchaseData= await db.collection('purchase').doc().get()
+        res.render('addPurchase')
+    } catch (error) {
+        console.log(error);
+    }
+})
+// READ ALL PURHCASE
+// =================================== //
+router.get('/view',async(req,res)=>{
+    try {
+       const purchaseData= await db.collection('purchase').get()
+        res.render('viewPurchase',{Data:purchaseData})
     } catch (error) {
         console.log(error);
     }
