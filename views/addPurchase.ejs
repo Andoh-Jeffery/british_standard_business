@@ -38,7 +38,13 @@
 
         <div class="col-md-3">
             <label for="" class="col-form-label">Name</label>
-            <input type="text" class="col-md-4 form-control" name="itemName" id="itemName" required>
+            <!-- <input type="text" class="col-md-4 form-control" name="itemName" id="itemName" required> -->
+            <select name="" id="itemName" class="col-md-4 form-control">
+                <option value="" disabled>choos a product...</option>
+                <%product.forEach(product=>{%>                
+                    <option value="<%=product.data().productName%>"><%=product.data().productName%></option>
+            <%})%>
+            </select>
         </div>
         <div class="col-md-3">
             <label for="" class="col-form-label">Quantity</label>
@@ -50,7 +56,7 @@
         </div>
         <div class="col-md-3">
             <label for="" class="col-form-label">Price</label>
-            <input type="text" class="col-md-4 form-control" name="itemPrice" id="itemPrice" required>
+            <input type="text" class="col-md-4 form-control" name="itemPrice" id="itemPrice" required placeholder="Ghc">
         </div>
     </div>
     <br>

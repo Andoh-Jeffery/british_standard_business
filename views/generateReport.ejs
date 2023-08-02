@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ("../partials/head.ejs")-%>
+  <body>
+    <div class="main-wrapper">
+      <%-include ("../partials/header.ejs")%>
+        <%-include ("../partials/sidebar.ejs")%>
+          <div class="page-wrapper cardhead">
+            <div class="content container-fluid">
+              <div class="page-header">
+                <div class="row">
+                  <div class="col">
+                    <h3 class="page-title">Reports</h3>
+                    <!-- <ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+<li class="breadcrumb-item active">Basic Tables</li>
+</ul> -->
+                  </div>
+                </div>
+              </div>
+              <div id="contentToPrint">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title">Report</h4>
+                      </div>
+                      <div class="card-body">
+                        <!-- <table class="table mb-0">
+<thead>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John</td>
+<td>Doe</td>
+<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="214b4e494f614459404c514d440f424e4c">[email&#160;protected]</a></td>
+</tr>
+<tr>
+<td>Mary</td>
+<td>Moe</td>
+<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfb2beada69fbaa7beb2afb3baf1bcb0b2">[email&#160;protected]</a></td>
+</tr>
+<tr>
+<td>July</td>
+<td>Dooley</td>
+<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="056f70697c45607d64687569602b666a68">[email&#160;protected]</a></td>
+</tr>
+</tbody>
+</table> -->
+                        <div class="row">
+                          <div class="col-lg-8">
+                            <img src="../assets/img/logo.png" alt="an image" width="80px" height="auto"> <br>
+                            <h5>British Standard Business</h5>
+                            <a href="#">textmeifyouneedanything@gmail.com</a>
+                            <p>+233-123-456-789</p>
+                          </div>
+                          <!-- <div class="col-lg-2">
+    <h2>hello</h2>
+  </div> -->
+                        </div>
+                        <div class="row" style="padding-top: 20px;">
+                          <div class="col-lg-6">
+                            <h5>Report Information</h5>
+                            <p> <span>Report Type</span>: Purchase / Expenses</p>
+                            <p> <span>Report Date</span>: todays date</p>
+                          </div>
+                          <div class="col-lg-6">
+                            <h5>Report Number</h5>
+                            <p><span>Report Number:</span> ####</p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="table-responsive">
+                            <table class="table mb-0">
+                              <thead>
+                                <tr>
+                                  <th>Description</th>
+                                  <th>Amount</th>
+                                  <th>Totaal</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>john</td>
+                                  <td>Doe</td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="row">
+<div class="col-lg-12">
+<div class="card">
+<div class="card-header">
+<h4 class="card-title">Expense Report</h4>
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table class="table mb-0">
+<thead>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John</td>
+<td>Doe</td>
+<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="214b4e494f614459404c514d440f424e4c">[email&#160;protected]</a></td>
+</tr>
+<tr>
+<td>Mary</td>
+<td>Moe</td>
+<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfb2beada69fbaa7beb2afb3baf1bcb0b2">[email&#160;protected]</a></td>
+</tr>
+<tr>
+<td>July</td>
+<td>Dooley</td>
+<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="056f70697c45607d64687569602b666a68">[email&#160;protected]</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</tbody>
+</table>
+</div> -->
+                </div>
+                <button type="print" class="btn btn-primary w-100" id="printButton">Print</button>
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <%-include ("../partials/scripts.ejs")%>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+      <script>
+        const report = document.getElementById('contentToPrint')
+        document.getElementById('printButton').addEventListener('click', (e) => {
+          e.preventDefault()
+          html2pdf().from(report).set({ filename: 'myfile.pdf' }).save()
+          return true;
+        })
+      </script>
+  </body>
+</html>

@@ -17,8 +17,8 @@ router.post('/add',async(req,res)=>{
 // READ ALL PURHCASE
 router.get('/',async(req,res)=>{
     try {
-    //    const purchaseData= await db.collection('purchase').doc().get()
-        res.render('addPurchase')
+       const productData= await db.collection('products').get()
+        res.render('addPurchase',{product:productData})
     } catch (error) {
         console.log(error);
     }
