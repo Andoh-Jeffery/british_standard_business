@@ -1,12 +1,22 @@
 const express=require('express')
 const db=require('../config/db')
+const {isAuth,}=require('../config/middleware')
+const moment=require('moment')
 const router=express.Router()
 
 // CREATE PURCHASE
 router.post('/add',async(req,res)=>{
+
     const {name,quantity,size,price}=req.body 
+    const purchaseData={
+        'name':name,
+        'quantity':quantity,
+        'size':size,
+        'price':price,
+        'date':moment().format('LL')
+    }
     try {
-        await db.collection('purchase').doc().set(req.body)
+        await db.collection('purchase').doc().set(purchaseData)
         res.status(201).send('data added')
     } catch (error) {
         console.log(error);
@@ -15,20 +25,22 @@ router.post('/add',async(req,res)=>{
 })
 
 // READ ALL PURHCASE
-router.get('/',async(req,res)=>{
+router.get('/',isAuth,async(req,res)=>{
     try {
        const productData= await db.collection('products').get()
-        res.render('addPurchase',{product:productData})
+       const admindetails=await db.collection('admin').get()
+        res.render('addPurchase',{product:productData,admin:admindetails})
     } catch (error) {
         console.log(error);
     }
 })
 // READ ALL PURHCASE
 // =================================== //
-router.get('/view',async(req,res)=>{
+router.get('/view',isAuth,async(req,res)=>{
     try {
        const purchaseData= await db.collection('purchase').get()
-        res.render('viewPurchase',{Data:purchaseData})
+       const admindetails=await db.collection('admin').get()
+        res.render('viewPurchase',{Data:purchaseData,admin:admindetails})
     } catch (error) {
         console.log(error);
     }

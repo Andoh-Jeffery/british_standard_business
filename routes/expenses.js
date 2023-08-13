@@ -1,13 +1,20 @@
 const express=require('express')
 const db=require('../config/db')
+const {isAuth}=require('../config/middleware')
+const moment=require('moment')
 const router=express.Router()
 
 // CREATE expense
 router.post('/add',async(req,res)=>{
     const {reason,amount}=req.body 
     // console.log(data);
+    const expenseData={
+        'reason':reason,
+        'amount':amount,
+        'date':moment().format('LL')
+    }
     try {
-        await db.collection('expense').doc().set(req.body)
+        await db.collection('expense').doc().set(expenseData)
         res.status(201).send('data added')
     } catch (error) {
         console.log(error);
@@ -16,18 +23,20 @@ router.post('/add',async(req,res)=>{
 })
 
 // READ ALL PURCHASE
-router.get('/',async(req,res)=>{
+router.get('/',isAuth,async(req,res)=>{
     try {
-        res.status(200).render('addExpense')
+        const admindetails=await db.collection('admin').get()
+        res.status(200).render('addExpense',{admin:admindetails})
     } catch (error) {
         console.log(error);
     }
 })
 // READ ALL PURCHASE
-router.get('/view',async(req,res)=>{
+router.get('/view',isAuth,async(req,res)=>{
     try {
         const expenceData=await db.collection('expense').get()
-        res.status(200).render('viewExpense',{Data:expenceData})
+        const admindetails=await db.collection('admin').get()
+        res.status(200).render('viewExpense',{Data:expenceData,admin:admindetails})
     } catch (error) {
         console.log(error);
     }
