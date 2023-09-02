@@ -168,12 +168,30 @@
     <%-include ("../partials/scripts.ejs")%>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
       <script>
-        const report = document.getElementById('contentToPrint')
-        document.getElementById('printButton').addEventListener('click', (e) => {
-          e.preventDefault()
-          html2pdf().from(report).set({ filename: Date.now() }).save()
-          return true;
-        })
+        try {
+          const formdata=new FormData()
+          const report = document.getElementById('contentToPrint')
+          document.getElementById('printButton').addEventListener('click',async () => {
+          const pdf= html2pdf().from(report).set({ filename: Date.now() }).save()
+          formdata.append('file',pdf)
+          const reportData=await fetch('/report/send_mail',{
+            method:"POST",
+            body:formdata
+          })
+            return true;
+          })
+          if(reportData.ok){
+            const responsDate=await reportData.json()
+            console.log('hello',responsDate);
+          }
+          else{
+            console.log('notsent');
+          }
+        } catch (error) {
+          console.log(error);
+          
+        }
+       
       </script>
   </body>
 </html>

@@ -5,9 +5,11 @@ const bcrypt=require('bcrypt')
 const path=require('path')
 const session=require('express-session')
 const FireStoreStore=require('firestore-store')(session)
+const nodemailer=require('nodemailer')
 const purchases=require('./routes/purchases')
 const expenses=require('./routes/expenses')
 const reports=require('./routes/reports')
+const product=require('./routes/product')
 const {isAuth}=require('./config/middleware')
 const port=process.env.PORT ||7000
 const app =express()
@@ -33,6 +35,7 @@ app.use(
 app.use('/purchase',purchases)
 app.use('/expense',expenses)
 app.use('/report',reports)
+app.use('/product',product)
 
 app.get('/',(req,res)=>{
     // console.log('Hello World');
@@ -95,6 +98,8 @@ app.get('/logout',(req,res)=>{
         console.log(error);
     }
 })
+
+
 // app.get('/view_purchase',(req,res)=>{
 //     res.status(200).render('viewPurchase')
 // })

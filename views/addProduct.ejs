@@ -10,7 +10,7 @@
 <div class="page-header">
 <div class="row">
 <div class="col">
-<h3 class="page-title">Add Purchase</h3>
+<h3 class="page-title">Add Product</h3>
 </div>
 </div>
 </div>
@@ -18,7 +18,7 @@
 <div class="col-lg-12">
 <div class="card">
 <div class="card-header">
-<h5 class="card-title">Purchase</h5>
+<h5 class="card-title">Products</h5>
 </div>
 <div class="card-body">
 
@@ -36,27 +36,31 @@
 <form action="" class="form-group" id="purchaseForm" method="post">
     <div class="row">
 
-        <div class="col-md-3">
-            <label for="" class="col-form-label">Name</label>
-            <!-- <input type="text" class="col-md-4 form-control" name="itemName" id="itemName" required> -->
-            <select name="" id="itemName" class="col-md-4 form-control">
+        <div class="col-md-2">
+            
+            <!-- <select name="" id="itemName" class="col-md-4 form-control">
                 <option value="" disabled>choos a product...</option>
-                <%product.forEach(product=>{%>                
-                    <option value="<%=product.data().productName%>"><%=product.data().productName%></option>
-            <%})%>
-            </select>
+                               
+                    <option value=""></option>
+            
+            </select> -->
         </div>
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
             <label for="" class="col-form-label">Quantity</label>
             <input type="number" class="col-md-4 form-control" name="itemQuantity" id="itemQuantity" required>
-        </div>
-        <div class="col-md-3">
+        </div> -->
+        <div class="col-md-8">
+            <label for="" class="col-form-label">Name</label>
+            <input type="text" class="col-md-4 form-control" name="itemName" id="itemName" required><br>
+
             <label for="" class="col-form-label">Size</label>
-            <input type="text" class="col-md-4 form-control" name="itemSize" id="itemSize">
-        </div>
-        <div class="col-md-3">
+            <input type="text" class="col-md-4 form-control" name="itemSize" id="itemSize"><br>
+
             <label for="" class="col-form-label">Price</label>
-            <input type="text" class="col-md-4 form-control" name="itemPrice" id="itemPrice" required placeholder="Ghc" value="">
+            <input type="text" class="col-md-4 form-control" name="itemPrice" id="itemPrice" required placeholder="Ghc">
+        </div>
+        <div class="col-md-2">
+           
         </div>
     </div>
     <br>
@@ -77,37 +81,37 @@
 <%-include ("../partials/scripts.ejs")%>
 <script>
     document.addEventListener('DOMContentLoaded',()=>{
-        document.getElementById('purchaseForm').addEventListener('submit',(e)=>{
+       const form= document.getElementById('purchaseForm')
+       form.addEventListener('submit',(e)=>{
             e.preventDefault()
             const name=document.getElementById('itemName').value
-            const quantity=document.getElementById('itemQuantity').value
             const size=document.getElementById('itemSize').value
             const price=document.getElementById('itemPrice').value
-            console.log(name,quantity,size,price);
+            console.log(name,size,price);
 
-            var purchaseData={
-                name:name,
-                quantity:quantity,
-                size:size,
-                price:price
+            var productData={
+                'productName':name,
+                'size':size,
+                'price':price
             }
-            fetch('/purchase/add',{
+            fetch('/product/add',{
                 method:'post',
                 "headers":{
                     "Content-Type":"application/json"
                 },
-                body:JSON.stringify(purchaseData)
+                body:JSON.stringify(productData)
             }).then((response)=>{response.json()}).then((finalres)=>{
                 Swal.fire(
                     'Success',
-                    'Purchase added successfully',
+                    'Product added successfully',
                     'success'
                 );
+                
             }).catch((error)=>{
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Something went wrong!',
+                    text: 'Error Adding Product!',
                     footer: '<a href="">Why do I have this issue?</a>'
                 })
             })

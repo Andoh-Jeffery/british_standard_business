@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include ("../partials/head.ejs")%>
+<body>
+<div class="main-wrapper">
+    <%-include ("../partials/header.ejs",{admin:admin})%>
+    <%-include ("../partials/sidebar.ejs")%>
+<div class="page-wrapper">
+<div class="content container-fluid">
+<div class="page-header">
+<div class="row">
+<div class="col">
+<h3 class="page-title">Products</h3>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-body">
+<div class="table-responsive">
+<table class="table  datanew ">
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>size</th>
+<th>Actions</th>
+<!-- <th>Start date</th>
+<th>Salary</th> -->
+</tr>
+</thead>
+<tbody>
+    <%product.forEach(product=>{%>
+        <tr>
+        <td><%=product.data().productName%></td>
+        <td>Ghc <%=product.data().price%></td>
+        <td><%=product.data().size%></td>
+        <!-- <td>2011/04/25</td>
+        <td>$320,800</td> -->
+        <td style="text-align: center;">
+            <!-- <a href="#" style="padding: 30px;"><i data-feather="edit-2"></i></a> -->
+            <a data-id="<%=product.id%>" class="delete-btn"><i data-feather="trash-2"></i></a>
+        </td>
+        </tr>
+        <%})%>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<%-include ("../partials/scripts.ejs")%>
+<script>
+      document.addEventListener("DOMContentLoaded", () => {
+                let delete_btn = document.querySelectorAll('.delete-btn');
+                for (let i = 0; i < delete_btn.length; i++) {
+                    const element = delete_btn[i];
+                    element.addEventListener('click', (e) => {
+                        e.preventDefault()
+                        console.log('/admin/post/delete/'+ element.dataset.id)
+                        fetch('/product/delete/'+ element.dataset.id,{
+                            method:"delete",
+                        }).then((response)=>response.json())
+                        .then((deleteResponse)=>{
+                            console.log('deleted');
+                            window.location.reload();
+                    }).catch(error=>{
+                        console.log(error);
+                    })
+                    })
+
+                }
+            })
+            
+</script>
+</body>
+</html>
