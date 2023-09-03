@@ -174,19 +174,19 @@
           document.getElementById('printButton').addEventListener('click',async () => {
           const pdf= html2pdf().from(report).set({ filename: Date.now() }).save()
           formdata.append('file',pdf)
-          const reportData=await fetch('/report/send_mail',{
-            method:"POST",
-            body:formdata
+          // const reportData=await fetch('/report/send_mail',{
+          //   method:"POST",
+          //   body:formdata
+          // })
+            // return true;
           })
-            return true;
-          })
-          if(reportData.ok){
-            const responsDate=await reportData.json()
-            console.log('hello',responsDate);
-          }
-          else{
-            console.log('notsent');
-          }
+          // if(reportData.ok){
+          //   const responsDate=await reportData.json()
+          //   console.log('hello',responsDate);
+          // }
+          // else{
+          //   console.log('notsent');
+          // }
         } catch (error) {
           console.log(error);
           
